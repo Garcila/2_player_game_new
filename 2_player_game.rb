@@ -1,18 +1,3 @@
-require 'pry'
-#  DONE  get player's names.
-#  DONE addition questions
-#  DONE questions automatically generated
-#  DONE the game selects question by picking number between 1 and 20
-#  DONE evaluate answer
-#  Each player has 3 lives
-#  Lose a life evey wrong answer
-#  keep score
-#  every wrong answer display score for the two players
-#  game ends when one player looses all lives
-#  State who won and looser's score
-
-# get player's names
-
 def get_names
 	player_number = 1
 	puts "Please type your name, player#{player_number}"
@@ -33,7 +18,7 @@ get_names
 @player_1_lives = 3
 @player_2_lives = 3
 
-while (@player_1_lives > 0) || (@player_2_lives > 0)
+while (@player_1_lives || @player_2_lives) > 0
 	def generate_numbers
 		@first_number = rand(1..20)
 		@second_number = rand(1..20)
@@ -65,10 +50,10 @@ while (@player_1_lives > 0) || (@player_2_lives > 0)
 			else
 				if @current_player == @player_1
 					@player_1_lives -= 1
-					puts "#{@current_player}, that is correct. Your current score is: #{@player_1_score} and you have #{@player_1_lives} lives left"
+					puts "#{@current_player}, that is wrong. Your current score is: #{@player_1_score} and you have #{@player_1_lives} lives left"
 				else
 					@player_2_lives -= 1
-					puts "#{@current_player}, that is correct. Your current score is: #{@player_2_score} and you have #{@player_2_lives} lives left"
+					puts "#{@current_player}, that is wrong. Your current score is: #{@player_2_score} and you have #{@player_2_lives} lives left"
 				end
 			end
 	end
@@ -84,5 +69,10 @@ while (@player_1_lives > 0) || (@player_2_lives > 0)
 	end
 
 	current_player
-	p @current_player
 end
+/n
+/n
+puts "-------------------------------------------------------------------------------"
+puts "Game over, the final score is:
+#{@player_1} has #{@player_1_score} points, and #{@player_2} has #{@player_2_score} points."
+puts "--------------------------------------------------------------------------------"
