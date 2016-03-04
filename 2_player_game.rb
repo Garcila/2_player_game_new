@@ -1,3 +1,5 @@
+gem 'colorize', '~> 0.7.7'
+
 def get_names
 	player_number = 1
 	puts "Please type your name, player#{player_number}"
@@ -12,11 +14,15 @@ end
 
 get_names
 
-@current_player = @player_1
-@player_1_score = 0
-@player_2_score = 0
-@player_1_lives = 3
-@player_2_lives = 3
+def start_playing
+	@current_player = @player_1
+	@player_1_score = 0
+	@player_2_score = 0
+	@player_1_lives = 3
+	@player_2_lives = 3
+end
+
+start_playing
 
 while (@player_1_lives || @player_2_lives) > 0
 	def generate_numbers
@@ -76,3 +82,15 @@ puts "--------------------------------------------------------------------------
 puts "Game over, the final score is:
 #{@player_1} has #{@player_1_score} points, and #{@player_2} has #{@player_2_score} points."
 puts "--------------------------------------------------------------------------------"
+# /n
+# /n
+# puts "Do you want to play another round?"
+# @answer_other_game = gets.chomp
+
+# def play_again
+# 	if @answer_other_game == true
+# 		start_playing
+# 	end
+# end
+
+# play_again
